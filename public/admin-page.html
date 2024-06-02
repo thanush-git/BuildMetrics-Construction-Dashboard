@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Page</title>
+        <link rel="stylesheet" href="admin-css.css">
+    </head>
+
+    <body>
+        <form method="post" action="/">
+
+        <!--Heading-->
+
+        <h1>Project Manager Portal</h1>
+
+        <!--Stage-->
+
+        <label for="stage">Stage:</label>
+        <select name="stage" id="stage">
+            <option value=1>Conceptual Design Phase</option>
+            <option value=2>Preliminary Design Stage</option>
+            <option value=3>Design Development Phase</option>
+            <option value=4>Planning and Permitting Stage</option>
+            <option value=5>Pre-Construction Phase</option>
+            <option value=6>Site Preparation Stage</option>
+            <option value=7>Foundation Construction Phase</option>
+            <option value=8>Structural Framing Stage</option>
+            <option value=9>Enclosure and Exterior Finishing Phase</option>
+            <option value=10>Interior Finishing Stage</option>
+            <option value=11>Mechanical, Electrical, and Plumbing (MEP) Installation Phase</option>
+            <option value=12>Final Inspection and Testing Stage</option>
+            <option value=13>Punch List and Remediation Phase</option>
+            <option value=14>Commissioning and Handover Stage</option>
+            <option value=15>Post-Construction Services and Maintenance</option>
+        </select>
+
+        <!--Resources-->
+        <br><br>
+        <label for="cement_usage">Enter bags of cement used:</label>
+    <textarea name="cement_usage" rows="1" cols="20" name="cement_usage" id="cement_usage"></textarea>
+
+    <br>
+    <label for="steel_usage">Enter bars of steel used:</label>
+    <textarea name="steel_usage" rows="1" cols="20" name="steel_usage" id="steel_usage"></textarea>
+    
+    <br>
+    <label for="bricks_usage">Enter number of bricks used:</label>
+    <textarea name="bricks_usage" rows="1" cols="20" name="bricks_usage" id="bricks_usage"></textarea>
+
+    <br>
+    <label for="timber_usage">Enter units of timber used:</label>
+    <textarea name="timber_usage" rows="1" cols="20" name="timber_usage" id="timber_usage"></textarea>
+    
+    <br>
+    <label for="labour">Number of labourers working at site:</label>
+    <textarea name="labour" rows="1" cols="20" name="labour" id="labour"></textarea>
+
+    <!--Remarks-->
+    <br>
+    <label for="remarks">Remarks:</label>
+    <textarea name="remarks" rows="1" cols="20" name="remarks" id="remarks"></textarea>
+
+    <br>
+    <button>Submit</button>
+    </form>
+
+    </body>
+</html>
