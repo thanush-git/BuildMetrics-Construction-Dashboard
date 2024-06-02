@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Login</title>
+    <link rel="stylesheet" href="assets/css/style2.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>   
+    <div class="wrapper">
+        <form id="loginForm">
+            <h1>Project Manager Login</h1>
+            
+            <div class="input-box">
+                <input type="email" placeholder="Email" id="email" required>
+                <i class='bx bx-envelope'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" placeholder="Password" id="password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <button type="submit" class="btn" id="Login">Login</button>
+        </form>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getDatabase, ref, update } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB7pcbqftJdLUeF7dmUFIBHdfLbeNE8yLs",
+            authDomain: "admin-login-7e1a7.firebaseapp.com",
+            projectId: "admin-login-7e1a7",
+            storageBucket: "admin-login-7e1a7.appspot.com",
+            messagingSenderId: "52741901822",
+            appId: "1:52741901822:web:a8ec1757e4ec9f5aee04af"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const database = getDatabase(app);
+
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    const dt = new Date();
+                    update(ref(database, 'users/' + user.uid), {
+                        last_login: dt,
+                    });
+
+                    setTimeout(function() {
+                        window.location.href = "https://buildmetrics-construction-dashboard-1.onrender.com";
+                    }, 1);
+                })
+                .catch((error) => {
+                    const errorMessage = error.message;
+                    alert(errorMessage);
+                });
+        });
+    </script>
+</body>
+</html>
